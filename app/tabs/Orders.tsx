@@ -12,11 +12,13 @@ import { Dimensions } from "react-native";
 import image from "../../constant/image";
 import Order from "../../components/Order";
 import ArrowBack from "../../assets/icons/ArrowBack";
+import { StatusBar as Bar} from "expo-status-bar";
+
 
 const Orders = () => {
   const data = [1, 2, 3, 4, 5, 6];
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor:'white' }}>
       <View style={styles.container}>
         <View style={styles.back}>
           <ArrowBack/>
@@ -70,7 +72,6 @@ const styles = StyleSheet.create({
     width: Dimensions.get("window").width,
     height: Dimensions.get("window").height,
     paddingHorizontal: 30,
-    backgroundColor:'white'
   },
   back:{
     width:38,
