@@ -11,12 +11,16 @@ import React from "react";
 import { Dimensions } from "react-native";
 import image from "../../constant/image";
 import Order from "../../components/Order";
+import ArrowBack from "../../assets/icons/ArrowBack";
 
 const Orders = () => {
   const data = [1, 2, 3, 4, 5, 6];
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.container}>
+        <View style={styles.back}>
+          <ArrowBack/>
+        </View>
         <Text style={styles.headerText}>Finished Orders</Text>
 
         <View style={styles.container2}>
@@ -66,6 +70,16 @@ const styles = StyleSheet.create({
     width: Dimensions.get("window").width,
     height: Dimensions.get("window").height,
     paddingHorizontal: 30,
+    backgroundColor:'white'
+  },
+  back:{
+    width:38,
+    height:48,
+    backgroundColor:'#f2f2f2',
+    borderRadius:9,
+    marginVertical:10,
+    alignItems:'center',
+    justifyContent:'center'
   },
   headerText: {
     fontSize: 28,
