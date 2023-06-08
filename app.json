@@ -1,9 +1,6 @@
 {
   "expo": {
     "scheme": "acme",
-    "web": {
-      "bundler": "metro"
-    },
     "name": "past_orders",
     "slug": "past_orders"
   }
