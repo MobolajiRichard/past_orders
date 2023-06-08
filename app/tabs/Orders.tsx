@@ -1,4 +1,4 @@
-import {View, Text, SafeAreaView, StyleSheet, Pressable, Image, FlatList } from "react-native";
+import {View, Text, SafeAreaView, StyleSheet, Pressable, Image, FlatList, Platform, StatusBar } from "react-native";
 import React from "react";
 import { Dimensions } from "react-native";
 import image from "../../constant/image";
@@ -6,10 +6,12 @@ import Order from "../../components/Order";
 import ArrowBack from "../../assets/icons/ArrowBack";
 import { data } from "../../utils/data";
 import { OrderProp } from "../../types";
+import {StatusBar as Bar} from 'expo-status-bar'
 
 const Orders = () => {
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
+    <SafeAreaView style={styles.wrapper}>
+      <Bar backgroundColor="white" style="dark" />
       <View style={styles.container}>
         <View style={styles.back}>
           <ArrowBack />
@@ -63,12 +65,19 @@ const Orders = () => {
 };
 
 const styles = StyleSheet.create({
+  wrapper:{
+    paddingTop: Platform.OS === 'android' ? StatusBar?.currentHeight : 0,
+    flex: 1, 
+    backgroundColor: "white" 
+  },
   container: {
     flex: 1,
     width: Dimensions.get("window").width,
     height: Dimensions.get("window").height,
     paddingHorizontal: 30,
+
   },
+
   back: {
     width: 38,
     height: 48,
