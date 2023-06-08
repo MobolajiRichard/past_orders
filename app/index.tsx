@@ -1,9 +1,7 @@
 import { Redirect } from "expo-router";
 import { useFonts } from "expo-font";
 import { FONTS } from "../constant";
-import { ActivityIndicator } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-
+import { ActivityIndicator, Text } from "react-native";
 
 const index = () => {
   //register fonts
@@ -18,7 +16,9 @@ const index = () => {
   if (!fontsLoaded) return <ActivityIndicator />;
 
   //after loading font, go to the order page
- return  <Redirect href="/tabs" />;
+  return (
+      <Redirect href="/tabs/Orders" />
+  );
 };
 
 export default index;

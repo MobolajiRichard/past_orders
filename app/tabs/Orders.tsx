@@ -1,30 +1,22 @@
-import {
-  View,
-  Text,
-  SafeAreaView,
-  StyleSheet,
-  Pressable,
-  Image,
-  FlatList,
-} from "react-native";
+import {View, Text, SafeAreaView, StyleSheet, Pressable, Image, FlatList } from "react-native";
 import React from "react";
 import { Dimensions } from "react-native";
 import image from "../../constant/image";
 import Order from "../../components/Order";
 import ArrowBack from "../../assets/icons/ArrowBack";
-import { StatusBar as Bar} from "expo-status-bar";
-
+import { data } from "../../utils/data";
+import { OrderProp } from "../../types";
 
 const Orders = () => {
-  const data = [1, 2, 3, 4, 5, 6];
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor:'white' }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
       <View style={styles.container}>
         <View style={styles.back}>
-          <ArrowBack/>
+          <ArrowBack />
         </View>
-        <Text style={styles.headerText}>Finished Orders</Text>
+        <Text style={styles.headerText}>Finished orders</Text>
 
+        {/* order card */}
         <View style={styles.container2}>
           <View style={styles.imageContainer}>
             <Image
@@ -43,7 +35,7 @@ const Orders = () => {
           <View style={styles.buttonContainer}>
             <Pressable style={[styles.button, { backgroundColor: "#D9D9D9" }]}>
               <Text style={[styles.orderTime, { opacity: 1 }]}>
-                Report Issue
+                Report issue
               </Text>
             </Pressable>
             <Pressable style={[styles.button, { backgroundColor: "#58C0DB" }]}>
@@ -53,14 +45,18 @@ const Orders = () => {
             </Pressable>
           </View>
         </View>
-
+        
+        {/* orders list */}
         <FlatList
           data={data}
           contentContainerStyle={{ flexGrow: 1, paddingHorizontal: 8 }}
-          renderItem={({ item }) => <Order />}
+          renderItem={({ item }: { item: OrderProp }) => (
+            <Order orders={item} />
+          )}
           showsVerticalScrollIndicator={false}
-          keyExtractor={(order) => order}
+          keyExtractor={(order: OrderProp) => order.id.toString()}
         />
+
       </View>
     </SafeAreaView>
   );
@@ -73,14 +69,14 @@ const styles = StyleSheet.create({
     height: Dimensions.get("window").height,
     paddingHorizontal: 30,
   },
-  back:{
-    width:38,
-    height:48,
-    backgroundColor:'#f2f2f2',
-    borderRadius:9,
-    marginVertical:10,
-    alignItems:'center',
-    justifyContent:'center'
+  back: {
+    width: 38,
+    height: 48,
+    backgroundColor: "#f2f2f2",
+    borderRadius: 9,
+    marginVertical: 10,
+    alignItems: "center",
+    justifyContent: "center",
   },
   headerText: {
     fontSize: 28,
@@ -95,14 +91,14 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     paddingHorizontal: "8.6%",
     paddingVertical: 27,
-    marginBottom:32,
+    marginBottom: 32,
   },
   orderDetails: {
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    marginRight: 66,
+    width: "90%",
   },
   buttonContainer: {
     display: "flex",
@@ -119,7 +115,6 @@ const styles = StyleSheet.create({
   name: {
     fontFamily: "mont_semibold",
     fontSize: 18,
-    marginBottom: 5,
   },
   orderInfo: {
     fontFamily: "mont_medium",

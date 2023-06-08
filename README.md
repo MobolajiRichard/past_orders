@@ -1,14 +1,10 @@
-# Expo Router Example
+--dependencies and uses--
+    "react-native-svg" - Icons
+    "expo-router" - Routes/Bottom Tab navigation
+    "expo-status-bar"  Status Bar
+    "expo" - framework
 
-Use [`expo-router`](https://expo.github.io/router) to build native navigation using files in the `app/` directory.
+To start app,
+    npm install
+    expo start || npm start
 
-## 🚀 How to use
-
-```sh
-npx create-expo-app -e with-router
-```
-
-## 📝 Notes
-
-- [Expo Router: Docs](https://expo.github.io/router)
-- [Expo Router: Repo](https://github.com/expo/router)

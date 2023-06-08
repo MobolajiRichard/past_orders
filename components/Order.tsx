@@ -1,13 +1,12 @@
 import { View, Text, StyleSheet, Image } from "react-native";
-import React from "react";
-import image from "../constant/image";
 import Check from "../assets/icons/Check";
+import {OrderProp} from '../types'
 
-const Order = () => {
+const Order = ({orders}:{orders:OrderProp}) => {
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
-        <Image source={image.image2} resizeMode="contain" alt="image" />
+        <Image source={orders.image} resizeMode="contain" alt="image" />
       </View>
       <View style={styles.details}>
         <Text style={styles.name}>Angel R.</Text>
@@ -63,7 +62,7 @@ const styles = StyleSheet.create({
   },
   desc: {
     fontFamily: "mont_medium",
-    fontSize: 14,
+    fontSize: 13.5,
     opacity: 0.5,
     marginBottom: 3,
   },
@@ -76,9 +75,11 @@ const styles = StyleSheet.create({
     width: 5,
     height: 5,
     borderRadius: 100,
-    opacity: 0.5,
+    opacity: 0.4,
     backgroundColor: "black",
-    marginHorizontal:4
+    marginHorizontal:4,
+    marginBottom: 2,
+    
   },
 });
 
